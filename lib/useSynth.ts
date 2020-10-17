@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Synth, Note } from './synth';
+import { Synth, Note, Params } from './synth';
 
 function undefinedIfNotClient(provider: () => any) {
   if (typeof window === 'undefined') {
@@ -8,17 +8,25 @@ function undefinedIfNotClient(provider: () => any) {
   return provider();
 }
 
-type SynthHookResult = {
+type LoadingSynth = {
   loading: true
-} | {
-  loading: false
-} & {
-  playNote: (note: Note) => void
 }
+
+export type LoadedSynth = {
+  loading: false,
+  playNote: (note: Note) => void,
+  params: Params
+}
+
+export function isLoadedSynth(synth: SynthHookResult): synth is LoadedSynth {
+  return !synth.loading;
+}
+
+type SynthHookResult = LoadingSynth | LoadedSynth;
 
 export function useSynth(): SynthHookResult {
   const audioContext = useRef(undefinedIfNotClient(() => new AudioContext()));
-  const synth = useRef(undefinedIfNotClient(() => new Synth({ audioContext: audioContext.current })))
+  const synth = useRef<Synth>(undefinedIfNotClient(() => new Synth({ audioContext: audioContext.current })))
 
   if (typeof audioContext.current == 'undefined' || typeof synth.current == 'undefined') {
     return {
@@ -30,6 +38,7 @@ export function useSynth(): SynthHookResult {
     loading: false,
     playNote(note: Note) {
       synth.current.playNote(note);
-    }
+    },
+    params: synth.current.getParams()
   }
 }
