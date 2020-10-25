@@ -7,7 +7,6 @@ function capitalize(str) {
 }
 
 function OscillatorTypeSelector({ param }: { param: SynthParam<OscillatorType> }) {
-  console.log(OscillatorTypes);
   return <select onChange={(event) => {
     param.setValue(event.target.value as OscillatorType)
   }}>
