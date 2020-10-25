@@ -1,4 +1,5 @@
-type OscillatorType = "custom" | "sawtooth" | "sine" | "square" | "triangle";
+export const OscillatorTypes = ["sawtooth", "sine", "square", "triangle"] as const;
+export type OscillatorType = typeof OscillatorTypes[number];
 
 type SynthBaseArgs = {
   audioContext: AudioContext
