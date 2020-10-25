@@ -1,15 +1,19 @@
 import Head from 'next/head'
 import { useSynth, isLoadedSynth } from '../lib/useSynth';
-import { SynthParam } from '../lib/synth';
+import { SynthParam, OscillatorType, OscillatorTypes } from '../lib/synth';
+
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
 function OscillatorTypeSelector({ param }: { param: SynthParam<OscillatorType> }) {
+  console.log(OscillatorTypes);
   return <select onChange={(event) => {
     param.setValue(event.target.value as OscillatorType)
   }}>
-    <option value="sawtooth">Sawtooth</option>
-    <option value="square">Square</option>
-    <option value="triangle">Triangle</option>
-    <option value="sin">Sine</option>
+    {OscillatorTypes.map((type) =>
+      <option key={type} value={type}>{capitalize(type)}</option>
+    )}
   </select>
 }
 
