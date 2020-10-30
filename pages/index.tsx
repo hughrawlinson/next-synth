@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { useSynth, isLoadedSynth } from '../lib/useSynth';
 import { SynthParam, OscillatorType, OscillatorTypes } from '../lib/synth';
 
-function capitalize(str) {
+function capitalize(str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
