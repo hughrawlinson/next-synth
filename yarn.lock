@@ -3397,10 +3397,10 @@ neo-async@^2.5.0, neo-async@^2.6.1, neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-next-on-netlify@^2.7.0:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/next-on-netlify/-/next-on-netlify-2.7.0.tgz#6c1cc75c062ad1a885b63429fdeac7794e6ddd07"
-  integrity sha512-OjDJHdzwhsz9yz/9A1pI8IiISxSvhdj40FqLXcjy//lvZAEpOV0xj/gAr/GOXf7sqNd0aXriwRMFCc/duYfY/g==
+next-on-netlify@^2.7.1:
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/next-on-netlify/-/next-on-netlify-2.7.1.tgz#c5a06587ff713af01c2248dd6e1750a923090708"
+  integrity sha512-5pFv622Yy00YAlK2/GpeF48UzPyeJRzKWO+QL+Y54XYOn5yPDa2lyHDjWk0pwaEUatI700zlf0lu412CHyoeBA==
   dependencies:
     "@sls-next/lambda-at-edge" "^1.5.2"
     commander "^6.0.0"
